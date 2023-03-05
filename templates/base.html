@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+    <form action="new_base.html" method="post">
+        {% csrf_token %}
+        <input type="text" name="email">
+        <br>
+        <input type="text" name="password">
+        <br>
 
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
