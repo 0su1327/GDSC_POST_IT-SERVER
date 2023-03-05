@@ -1,9 +1,11 @@
 from django.urls import path
 
-from webproject.views import hello_world
+from webproject import views
+
 
 app_name = "accountapp"
 
 urlpatterns= [
-    path('/login', hello_world, name='hello_world')
+    # path('/login', views.login, name='login'),
+    path('signup/', views.signup, name='signup'),
 ]

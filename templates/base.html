@@ -7,12 +7,20 @@
 <body>
     <form action="new_base.html" method="post">
         {% csrf_token %}
-        <input type="text" name="email">
-        <br>
-        <input type="text" name="password">
-        <br>
-
-        <button type="submit">Login</button>
+    아이디:
+    <br>
+    <input name="username"  type="text" >
+    <br>
+    비밀번호:
+    <br>
+    <input name="password1"  type="password" >
+    <br>
+    비밀번호 확인:
+    <br>
+    <input name="password2"  type="password" >
+    <br>
+    <br>
+    <input type="submit" value="회원가입">
     </form>
 </body>
 </html>
