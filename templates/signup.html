@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <form method="POST" action="/webproject/signup">
+    {% csrf_token %}
+    <p>username</p>
+    <input type="text" name="user_email">
+    <br>
+    <p>password</p>
+    <input type="text" name="user_pw">
+    <br>
+    <p>confirm</p>
+    <input type="text" name="confirm">
+    <br>
+    <input type="submit" value="회원가입">
+</form>
+
+</body>
+</html>
