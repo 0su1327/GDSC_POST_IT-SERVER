@@ -10,10 +10,10 @@
     <form method="POST" action="/webproject/login">
     {% csrf_token %}
     <p>username</p>
-    <input type="text" name="username">
+    <input type="text" name="user_email">
     <br>
     <p>password</p>
-    <input type="text" name="password">
+    <input type="text" name="user_pw">
     <br>
     <input type="submit" value="로그인">
 </form>
