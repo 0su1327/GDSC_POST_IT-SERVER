@@ -23,7 +23,7 @@ class Note(models.Model):
 
     class Meta:
         db_table = 'note'
-class PostIt(models.Model):
+class Postit(models.Model):
 
     postit_id = models.AutoField(primary_key=True)
     note = models.ForeignKey('Note', on_delete=models.CASCADE)

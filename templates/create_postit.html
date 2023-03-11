@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <form method="POST" action="/note/:note_id/write">
+    {% csrf_token %}
+    <input type="text" name="writer">
+    <br>
+    텍스트 치는 곳
+    <br>
+    <input type="textArea" name="content_text">
+    <br>
+    익명으로 설정(anonymous)
+    <>
+    <input type="text" name="confirm">
+    <br>
+    <input type="submit" value="노트에 붙이기">
+</form>
+
+</body>
+</html>
