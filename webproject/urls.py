@@ -2,7 +2,6 @@ from django.urls import path
 
 from webproject import views
 
-
 app_name = "user"
 
 urlpatterns= [
