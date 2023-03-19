@@ -9,6 +9,29 @@ from django.shortcuts import render, redirect
 # from django.contrib.auth.models import Users
 from django.contrib import auth
 
+from rest_framework import generics
+
+from .models import Users
+from .models import Note
+from .models import Postit
+from .serializers import UserSerializer
+from .serializers import NoteSerializer
+from .serializers import PostitSerializer
+
+
+class ListUser(generics.ListCreateAPIView):
+    queryset = Users.objects.all()
+    serializer_class = UserSerializer
+
+class ListNote(generics.ListCreateAPIView):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+
+
+class ListPostit(generics.ListCreateAPIView):
+    queryset = Note.objects.all()
+    serializer_class = PostitSerializer
+
 
 # Create your views here.
 
