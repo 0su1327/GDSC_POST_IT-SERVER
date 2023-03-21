@@ -22,6 +22,8 @@ from .serializers import PostitSerializer
 class ListUser(generics.ListCreateAPIView):
     queryset = Users.objects.all()
     serializer_class = UserSerializer
+    def get(self, request, user_id):
+        user_id = Users.objects.filter(user_id=user_id).values()
 
 class ListNote(generics.ListCreateAPIView):
     queryset = Note.objects.all()
@@ -72,18 +74,26 @@ def login(request):
 
 
         else:
-            # home에서 context로 user_id를 받을 수 있다.
-            data = Users.objects.filter(user_email=request.POST['user_email'])
-            context = {'data': data}
+            # 비밀번호와 아이디가 맞다고 한다면 user_id를 통해서 해당 note가 존재하는지를 확인해야함.
+            # 먼저
+            # data = Users.objects.filter(user_pw=request.POST['user_pw'])
+            # context = {'data': data}
+            #
+            # id = context.user_id
+            # data = request.POST.get['user_id']
+            #
+            # id = Users.objects.get(user_id = data)
 
-            id = context.user_id
+            # 우리가 어떻게 해야지 user_id를 가져올수 있는거지???
+            data = Users.objects.filter(user_email = request.POST['user_email'])
+            id = data.values()
 
             if Note.objects.filter(user_id=id) :
 
                return render(request, 'note_check.html', {'note_exist': 'true'})
-            return render(request, 'home.html', {'note_exist': 'false'})
+            return render(request, 'create_note.html', {'note_exist': 'false'})
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
-    return render(request, 'create_note.html')
+    return render(request, 'login.html')
 
 
 # # 로그 아웃

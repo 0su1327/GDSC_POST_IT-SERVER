@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form method="POST" action="/note/:note_id/write">
+    <form method="POST" action="/note/<int:user_id>/write">
     {% csrf_token %}
     <input type="text" name="writer">
     <br>
