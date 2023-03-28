@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form method="POST" action="/note/<int:user_id>/make">
+    <form method="POST" action="{% url 'user:create_note' question.id %}">
     {% csrf_token %}
     <p>note</p>
         노트의 주인

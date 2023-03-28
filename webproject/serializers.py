@@ -2,6 +2,8 @@ from rest_framework import serializers
 from .models import Users
 from .models import Note
 from .models import Postit
+
+# Queryset을 json으로 매핑해주기 위한 과정
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (

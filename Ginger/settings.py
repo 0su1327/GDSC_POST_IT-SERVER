@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     # 'api',
+    # 'django-fiters',
 
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
+        'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.permissions.AllowAny',
     ]
 }
@@ -147,7 +149,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ##CORS
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL= False
 CORS_ALLOW_CREDENTIALS = True
 
 # CORS_ALLOW_METHODS = (
@@ -171,5 +173,6 @@ CORS_ALLOW_CREDENTIALS = True
 #     'x-requested-with',
 # )
 
-CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
-CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:3000',
+]
